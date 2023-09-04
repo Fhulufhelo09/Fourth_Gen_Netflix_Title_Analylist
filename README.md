@@ -1,2 +1,2 @@
 # Fourth_Gen_Netflix_Title_Analylist
-As Data Scientist students we're given a data and we required to clean it summarize statistical details , create visuals using the data and perform prediction analysis
+As Data Science students, we are tasked with receiving data, cleaning it, summarizing statistical details, creating visuals based on the data, and conducting prediction analysis.
