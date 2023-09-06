@@ -112,7 +112,7 @@ def getDuration(data):
 
 #STEP8
 # inserting new SEASON type column for shows (renamed column)
-netflixshows.insert(11, 'seasons', getDuration(netflixshows['duration']))
+netflixshows.insert(9, 'seasons', getDuration(netflixshows['duration']))
 netflixshows = netflixshows.drop(['duration'], axis = 1)
 netflixshows.head()
 
@@ -121,3 +121,14 @@ netflixshows.head()
 netflixfilms.insert(9, 'length', getDuration(netflixfilms['duration']))
 netflixfilms = netflixfilms.drop(['duration'], axis = 1)
 netflixfilms.head()
+
+#STEP10
+# getting the unique ratings for films
+netflixfilms['rating'].unique()
+
+#STEP11# printing more details of the rows that have WRONG ratings
+wrong_ratings = ['74 min', '84 min', '66 min']
+for i in range(len(netflixfilms)):
+    if netflixfilms['rating'].iloc[i] in wrong_ratings:
+        print(netflixfilms.iloc[i])
+        print("")
