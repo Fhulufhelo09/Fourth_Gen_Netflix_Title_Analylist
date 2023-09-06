@@ -132,3 +132,46 @@ for i in range(len(netflixfilms)):
     if netflixfilms['rating'].iloc[i] in wrong_ratings:
         print(netflixfilms.iloc[i])
         print("")
+
+#STEP11
+# getting the row indices
+
+
+index = [3562, 3738, 3747]
+
+
+# fixing the entries
+for i in index:
+    split_value = netflixfilms['rating'].iloc[i].split(" ")
+    minutes = split_value[0]
+   
+    netflixfilms['length'].iloc[i] =  minutes
+   
+    netflixfilms['length']= netflixfilms['length'].astype(int)
+    netflixfilms['rating'].iloc[i] = "NR"
+    
+# double checking the entries again
+for i in index:
+    print(netflixfilms.iloc[i])
+
+#STEP12
+# # fixing the entries in rating
+for i in range(len(netflixfilms)):
+    if netflixfilms['rating'].iloc[i] == "":
+         netflixfilms['rating']=netflixfilms['rating'].replace("","NR")    
+        
+#STEP13
+#looking into my data again to see more 0 ENRTY
+select_prod = netflixshows.loc[netflixshows['year_added'] == 0]
+
+print(select_prod)   
+
+#STEP14
+#FINDING MEAN TO REPLACE ZERO ENTRIES
+netflixshows['year_added'].mean()
+netflixshows['month_added'].mean()
+
+#STEP15
+#REPLACING ZERO ENTRIES USING THE MEAN
+netflixshows['year_added']=netflixshows['year_added'].replace(0,2011)
+netflixshows['month_added']=netflixshows['month_added'].replace(0,6)
