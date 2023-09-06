@@ -1,6 +1,7 @@
 import pandas as pd
 from datetimne import datetime
 import matplotlib.pyplot as plt
+import numpy as np
 netflixdata=pd.read_csv(r"C:\Users\hp\Desktop\netflix\netflix_titles.csv")
 
 #STEP1
@@ -175,3 +176,35 @@ netflixshows['month_added'].mean()
 #REPLACING ZERO ENTRIES USING THE MEAN
 netflixshows['year_added']=netflixshows['year_added'].replace(0,2011)
 netflixshows['month_added']=netflixshows['month_added'].replace(0,6)
+
+#STEP 16
+#CREATING VISUAL ABOUT SEASON, LENGTH, YEAR ADDED ,YEAR RELEASED
+
+#scatter plots
+netflixshows.plot(kind = 'scatter', x = 'release_year', y = 'seasons')
+plt.show()
+netflixfilms.plot(kind = 'scatter', x = 'release_year', y = 'length')
+plt.show()
+#histo gram for time
+netflixshows["seasons"].plot(kind = 'hist')
+plt.show()
+netflixfilms["length"].plot(kind = 'hist')
+plt.show()
+
+#histogram for year released
+netflixshows["release_year"].plot(kind = 'hist', x='release_year')
+plt.show()
+netflixfilms["release_year"].plot(kind = 'hist', x='release_year')
+plt.show()
+
+
+#histogram for month added
+netflixshows["month_added"].plot(kind = 'hist')
+plt.show()
+netflixfilms["month_added"].plot(kind = 'hist')
+plt.show()
+
+#ADD PIE CHART BUT NEEDS MORE WORK
+filmtime= np.array(netflixfilms['month_added'])
+plt.pie(filmtime)
+plt.show()
