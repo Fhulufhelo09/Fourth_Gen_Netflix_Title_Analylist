@@ -2,6 +2,7 @@ import pandas as pd
 from datetimne import datetime
 import matplotlib.pyplot as plt
 import numpy as np
+import seaborn as sns
 netflixdata=pd.read_csv(r"C:\Users\hp\Desktop\netflix\netflix_titles.csv")
 
 #STEP1
@@ -178,33 +179,49 @@ netflixshows['year_added']=netflixshows['year_added'].replace(0,2011)
 netflixshows['month_added']=netflixshows['month_added'].replace(0,6)
 
 #STEP 16
-#CREATING VISUAL ABOUT SEASON, LENGTH, YEAR ADDED ,YEAR RELEASED
+#CREATING VISUAL ABOUT SEASON, LENGTH, YEAR ADDED ,YEAR RELEASED,type
 
 #scatter plots
 netflixshows.plot(kind = 'scatter', x = 'release_year', y = 'seasons')
 plt.show()
 netflixfilms.plot(kind = 'scatter', x = 'release_year', y = 'length')
 plt.show()
-#histo gram for time
-netflixshows["seasons"].plot(kind = 'hist')
+
+#checking the mean,median and quartiles of the movies
+sns.catplot(data=netflixfilms, x='type', y='release_year', kind='box')
 plt.show()
-netflixfilms["length"].plot(kind = 'hist')
+#checking the mean,median and quartiles of the TV shows
+sns.catplot(data=netflixshows, x='type', y='release_year', kind='box')
 plt.show()
 
-#histogram for year released
-netflixshows["release_year"].plot(kind = 'hist', x='release_year')
+#checking the duration mean ,median and quartiles of the movies
+sns.catplot(data=netflixfilms, x='type', y='length', kind='box')
 plt.show()
-netflixfilms["release_year"].plot(kind = 'hist', x='release_year')
+
+#checking the duration  mean ,median and quartiles of the Tv shows
+sns.catplot(data=netflixshows, x='type', y='seasons', kind='box')
+plt.show()
+
+#checking the duration of the TV shows
+sns.catplot(data=netflixshows, x='rating', y='seasons', kind='bar')
 plt.show()
 
 
-#histogram for month added
-netflixshows["month_added"].plot(kind = 'hist')
-plt.show()
-netflixfilms["month_added"].plot(kind = 'hist')
+#checking the duration of the TV shows
+sns.catplot(data=netflixfilms, x='rating', y='length', kind='bar')
 plt.show()
 
-#ADD PIE CHART BUT NEEDS MORE WORK
-filmtime= np.array(netflixfilms['month_added'])
-plt.pie(filmtime)
+#counting categories in rating of the movies 
+sns.countplot(data=netflixfilms, x='rating')
 plt.show()
+
+#counting categories in rating of the movies 
+sns.countplot(data=netflixshows, x='rating')
+plt.show()
+
+#piechart for rating movies in percentage
+netflixfilms.groupby('rating').size().plot(kind='pie', autopct='%.2f')
+
+#piechart for rating movies in percentage
+
+netflixshows.groupby('rating').size().plot(kind='pie', autopct='%.2f')
