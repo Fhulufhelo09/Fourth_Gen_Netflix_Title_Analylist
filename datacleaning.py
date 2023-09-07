@@ -180,7 +180,7 @@ netflixshows['month_added']=netflixshows['month_added'].replace(0,6)
 
 #STEP 16
 #CREATING VISUAL ABOUT SEASON, LENGTH, YEAR ADDED ,YEAR RELEASED,type
-
+# updated visuals
 #scatter plots
 netflixshows.plot(kind = 'scatter', x = 'release_year', y = 'seasons')
 plt.show()
