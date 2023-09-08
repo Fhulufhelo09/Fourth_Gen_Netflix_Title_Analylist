@@ -187,36 +187,12 @@ plt.show()
 netflixfilms.plot(kind = 'scatter', x = 'release_year', y = 'length')
 plt.show()
 
-#checking the mean,median and quartiles of the movies
-sns.catplot(data=netflixfilms, x='type', y='release_year', kind='box')
-plt.show()
-#checking the mean,median and quartiles of the TV shows
-sns.catplot(data=netflixshows, x='type', y='release_year', kind='box')
+#number of movies with respect to month added
+sns.countplot(data=netflixfilms, x='month_added',color='steelblue' ).set(title='Month with highest number of movies added ')
 plt.show()
 
-#checking the duration mean ,median and quartiles of the movies
-sns.catplot(data=netflixfilms, x='type', y='length', kind='box')
-plt.show()
-
-#checking the duration  mean ,median and quartiles of the Tv shows
-sns.catplot(data=netflixshows, x='type', y='seasons', kind='box')
-plt.show()
-
-#checking the duration of the TV shows
-sns.catplot(data=netflixshows, x='rating', y='seasons', kind='bar')
-plt.show()
-
-
-#checking the duration of the TV shows
-sns.catplot(data=netflixfilms, x='rating', y='length', kind='bar')
-plt.show()
-
-#counting categories in rating of the movies 
-sns.countplot(data=netflixfilms, x='rating')
-plt.show()
-
-#counting categories in rating of the movies 
-sns.countplot(data=netflixshows, x='rating')
+#number of TV shows with respect to month added
+sns.countplot(data=netflixshows, x='month_added',color='steelblue' ).set(title='Month with highest number of TV show added ')
 plt.show()
 
 #piechart for rating movies in percentage
