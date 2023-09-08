@@ -198,8 +198,17 @@ plt.show()
 #number of movies with respect to rating
 sns.countplot(data=netflixfilms, x='rating',color='steelblue' ).set(title='Movies rating with highest number ')
 plt.show()
+
 #number of TV shows with respect to rating
 sns.countplot(data=netflixshows, x='rating',color='steelblue' ).set(title='TV shows rating with highest number ')
+plt.show()
+
+
+#number of movies with respect rating and time
+sns.catplot(data=netflixfilms, x='rating',y='length',color='steelblue',kind='bar',height=10,aspect=0.8).set(title='Movies rating with most minutes ')
+plt.show()
+#number of TV shows with respect to rating and time
+sns.catplot(data=netflixshows, x='rating',y='seasons',color='steelblue',kind='bar').set(title='TV shows rating with most seasons')
 plt.show()
 
 #piechart for rating movies in percentage
