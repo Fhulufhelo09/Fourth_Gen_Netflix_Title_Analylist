@@ -195,6 +195,13 @@ plt.show()
 sns.countplot(data=netflixshows, x='month_added',color='steelblue' ).set(title='Month with highest number of TV show added ')
 plt.show()
 
+#number of movies with respect to rating
+sns.countplot(data=netflixfilms, x='rating',color='steelblue' ).set(title='Movies rating with highest number ')
+plt.show()
+#number of TV shows with respect to rating
+sns.countplot(data=netflixshows, x='rating',color='steelblue' ).set(title='TV shows rating with highest number ')
+plt.show()
+
 #piechart for rating movies in percentage
 netflixfilms.groupby('rating').size().plot(kind='pie', autopct='%.2f')
 
